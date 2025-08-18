@@ -3,9 +3,7 @@
 name: Release
 # yamllint disable-line rule:truthy
 on:
-  push:
-    tags:
-      - v*
+  workflow_dispatch:
 permissions: {}
 jobs:
   release:
