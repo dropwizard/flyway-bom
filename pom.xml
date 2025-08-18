@@ -6,7 +6,7 @@
   <version>11.11.1</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
-  <description>Flyway: Database Migrations Made Easy.</description>
+  <description>Bill of Materials for Flyway: Database Migrations Made Easy.</description>
   <url>https://flywaydb.org</url>
   <licenses>
     <license>
@@ -15,6 +15,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <developers>
+    <developer>
+      <id>j.schalanda</id>
+      <name>Jochen Schalanda</name>
+      <email>jochen@schalanda.name</email>
+    </developer>
+  </developers>
   <scm>
     <connection>scm:git:https://github.com/dropwizard/flyway-bom</connection>
     <developerConnection>scm:git:git@github.com:dropwizard/flyway-bom.git</developerConnection>
