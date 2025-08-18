@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "config:best-practices",
+    ":automergeDigest",
+    ":automergePatch",
+    ":automergePr",
+    ":automergeRequireAllStatusChecks",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    ":prConcurrentLimitNone",
+    ":prHourlyLimitNone",
+    ":separateMultipleMajorReleases",
+    ":separatePatchReleases",
+    "group:recommended",
+    "schedule:automergeWeekly",
+    "schedule:weekly"
+  ],
+  "baseBranches": ["main"],
+  "dependencyDashboard": true,
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchManagers": ["maven", "maven-wrapper"],
+      "addLabels": ["java"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "addLabels": ["github_actions"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "groupSlug": "github-actions"
+    },
+    {
+      "groupName": "Maven plugins",
+      "groupSlug": "maven-plugins",
+      "matchPackageNames": ["org.apache.maven.plugins**"]
+    }
+  ],
+  "platformAutomerge": true,
+  "reviewers": ["team:committers"]
+}
