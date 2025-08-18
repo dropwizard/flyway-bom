@@ -8,6 +8,8 @@ permissions: {}
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       JAVA_OPTS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
     steps:
