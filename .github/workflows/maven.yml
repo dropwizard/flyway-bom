@@ -1,0 +1,42 @@
+---
+# yamllint disable rule:comments rule:line-length
+name: Java CI
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    name: "\U0001F9F9 Linters"
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out configuration from GitHub
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: 🧹 Run yamllint
+        uses: frenck/action-yamllint@34b4bbcaeabedcfefad6adea8c5bbc42af0e2d47 # v1.5.0
+      - name: Validate Renovate configuration
+        uses: suzuki-shunsuke/github-action-renovate-config-validator@c22827f47f4f4a5364bdba19e1fe36907ef1318e # v1.1.1
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      issues: write
+      pull-requests: write
+    env:
+      JAVA_OPTS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up JDK
+        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: 'zulu'
+          java-version: '21'
+      - name: Build
+        run: ./mvnw --no-transfer-progress -V -B -fae verify

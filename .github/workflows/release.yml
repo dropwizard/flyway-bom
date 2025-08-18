@@ -1,0 +1,32 @@
+---
+# yamllint disable rule:comments rule:line-length
+name: Release
+# yamllint disable-line rule:truthy
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      JAVA_OPTS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: "zulu"
+          java-version: "21"
+          server-id: central
+          server-username: CI_DEPLOY_USERNAME
+          server-password: CI_DEPLOY_PASSWORD
+      - name: Deploy
+        run: ./mvnw -B -V -ntp deploy
+        env:
+          CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
+          CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          MAVEN_GPG_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
