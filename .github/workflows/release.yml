@@ -24,6 +24,8 @@ jobs:
           server-id: central
           server-username: CI_DEPLOY_USERNAME
           server-password: CI_DEPLOY_PASSWORD
+      - name: Install xpath
+        run: sudo apt install -y libxml-xpath-perl
       - name: Prepare and perform release
         run: |
           VERSION=$(xpath -q -e '/project/properties/flywayVersion/text()' pom.xml)
