@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.dropwizard.flywaydb</groupId>
   <artifactId>flyway-bom</artifactId>
-  <version>11.11.1</version>
+  <version>11.11.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Bill of Materials for Flyway: Database Migrations Made Easy.</description>
@@ -39,7 +39,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <flywayVersion>${project.version}</flywayVersion>
+    <flywayVersion>11.11.1</flywayVersion>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -276,6 +276,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
           <useReleaseProfile>false</useReleaseProfile>
           <releaseProfiles>release</releaseProfiles>
           <goals>deploy</goals>
