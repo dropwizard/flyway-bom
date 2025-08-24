@@ -28,6 +28,10 @@ jobs:
         run: sudo apt install -y libxml-xpath-perl
       - name: Prepare and perform release
         run: |
+          git config --global committer.email "48418865+dropwizard-committers@users.noreply.github.com"
+          git config --global committer.name "Release Action"
+          git config --global author.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global author.name "${GITHUB_ACTOR}"
           VERSION=$(xpath -q -e '/project/properties/flywayVersion/text()' pom.xml)
           ./mvnw -B -V -ntp -DreleaseVersion="${VERSION}" release:prepare release:perform
         env:
