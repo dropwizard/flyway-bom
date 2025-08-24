@@ -39,3 +39,4 @@ jobs:
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
           SIGN_KEY_PASS: ${{ secrets.GPG_PASSPHRASE }}
           SIGN_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GH_TOKEN: ${{ github.token }}
