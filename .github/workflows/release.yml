@@ -24,17 +24,10 @@ jobs:
           server-id: central
           server-username: CI_DEPLOY_USERNAME
           server-password: CI_DEPLOY_PASSWORD
-      - name: Tag release
+      - name: Prepare and perform release
         run: |
-          VERSION=$(./mvnw help:evaluate -q -B -ntp -Dexpression=project.version -DforceStdout=true)
-          git config --global committer.email "48418865+dropwizard-committers@users.noreply.github.com"
-          git config --global committer.name "Dropwizard Release Action"
-          git config --global author.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global author.name "${GITHUB_ACTOR}"
-          git tag "v${VERSION}"
-          git push origin "v${VERSION}"
-      - name: Deploy release
-        run: ./mvnw -B -V -ntp deploy
+          VERSION=$(xpath -q -e '/project/properties/flywayVersion/text()' pom.xml)
+          ./mvnw -B -V -ntp -DreleaseVersion=${VERSION} release:prepare release:perform
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
