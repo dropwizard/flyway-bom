@@ -11,8 +11,8 @@
     ":separateMultipleMajorReleases",
     ":separatePatchReleases",
     "group:recommended",
-    "schedule:automergeWeekly",
-    "schedule:weekly"
+    "schedule:automergeDaily",
+    "schedule:daily"
   ],
   "baseBranchPatterns": [
     "main"
