@@ -20,6 +20,8 @@ jobs:
       - name: Install xpath
         run: sudo apt install -y libxml-xpath-perl
       - name: Trigger release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           FLYWAY_VERSION=$(xpath -q -e '/project/properties/flywayVersion/text()' pom.xml)
           LATEST_TAG=$(git tag --sort=v:refname |tail -n1)
