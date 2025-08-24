@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
+      - name: Install xpath
+        run: sudo apt install -y libxml-xpath-perl
       - name: Trigger release
         run: |
           FLYWAY_VERSION=$(xpath -q -e '/project/properties/flywayVersion/text()' pom.xml)
