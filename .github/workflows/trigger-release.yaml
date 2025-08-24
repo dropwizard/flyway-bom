@@ -1,6 +1,6 @@
 ---
 # yamllint disable rule:comments rule:line-length
-name: Java CI
+name: Trigger release
 # yamllint disable-line rule:truthy
 on:
   push:
