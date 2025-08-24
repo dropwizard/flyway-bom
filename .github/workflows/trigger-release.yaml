@@ -11,18 +11,20 @@ jobs:
   trigger-release:
     runs-on: ubuntu-latest
     permissions:
-      checks: write
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
+          fetch-tags: true
           persist-credentials: false
       - name: Install xpath
         run: sudo apt install -y libxml-xpath-perl
       - name: Trigger release
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -x
           FLYWAY_VERSION=$(xpath -q -e '/project/properties/flywayVersion/text()' pom.xml)
           LATEST_TAG=$(git tag --sort=v:refname |tail -n1)
           if [[ "v${FLYWAY_VERSION}" != "${LATEST_TAG}" ]]
