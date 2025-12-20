@@ -39,7 +39,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <flywayVersion>11.19.0</flywayVersion>
+    <flywayVersion>11.19.1</flywayVersion>
   </properties>
   <dependencyManagement>
     <dependencies>
