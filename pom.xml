@@ -56,6 +56,11 @@
       </dependency>
       <dependency>
         <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-commandline</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
         <artifactId>flyway-maven-plugin</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
@@ -98,11 +103,6 @@
       <dependency>
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-database-mongodb</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-database-nc-mongodb</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
       <dependency>
@@ -160,40 +160,14 @@
         <artifactId>flyway-database-cassandra</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
-      <!-- https://github.com/flyway/flyway/blob/main/flyway-experimental/pom.xml -->
       <dependency>
         <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-info</artifactId>
+        <artifactId>flyway-database-nc-mongodb</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
       <dependency>
         <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-validate</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-migrate</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-baseline</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-clean</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-schemas</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-repair</artifactId>
+        <artifactId>flyway-database-nc-couchbase</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
       <!-- https://github.com/flyway/flyway/blob/main/flyway-nc/pom.xml -->
@@ -210,12 +184,65 @@
       </dependency>
       <dependency>
         <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-nc-scanners</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
         <artifactId>flyway-nc-core</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
       <dependency>
         <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-nc-scanners</artifactId>
+        <artifactId>flyway-verb-baseline</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-clean</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-info</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-migrate</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-repair</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-schemas</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-testConnection</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-verb-validate</artifactId>
+        <version>${flywayVersion}</version>
+      </dependency>
+      <!-- https://github.com/flyway/flyway/blob/main/flyway-command/pom.xml -->
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-command
+        </artifactId>
+        <version>${flywayVersion}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-command-test-connection</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
     </dependencies>
