@@ -102,11 +102,6 @@
       </dependency>
       <dependency>
         <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-database-mongodb</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
         <artifactId>flyway-database-redshift</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
