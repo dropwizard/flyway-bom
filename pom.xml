@@ -219,11 +219,6 @@
       </dependency>
       <dependency>
         <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-verb-testConnection</artifactId>
-        <version>${flywayVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.flywaydb</groupId>
         <artifactId>flyway-verb-validate</artifactId>
         <version>${flywayVersion}</version>
       </dependency>
