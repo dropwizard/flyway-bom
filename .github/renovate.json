@@ -17,7 +17,9 @@
   "baseBranchPatterns": [
     "main"
   ],
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "labels": [
     "dependencies"
   ],
